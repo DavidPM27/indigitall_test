@@ -34,19 +34,23 @@
         </button>
       </div>
     </div>
-    <script
-      src="../sdk/sdk.min.js"
-      onload="indigitall.init({
-      appKey: '94cb9c3e-0749-450f-8445-49bf2b269d8a',
-      workerPath: '../sdk/worker.min.js',
-      requestLocation: true
-    })"
-      async
-    ></script>
+    <script src="../sdk/sdk.min.js"></script>
     <script>
       function sendSignupEmailEvent() {
         const email = document.getElementById("email").value;
         const repeated_email = document.getElementById("repeated_email").value;
+        indigitall.topicsUnsubscribe(
+          ["incomplete_step2"],
+          (topics) => {
+            // success function
+            console.log(topics);
+          },
+          () => {
+            // error function
+            console.error(error);
+          }
+        );
+
         indigitall.sendCustomEvent(
           {
             eventType: "step2",

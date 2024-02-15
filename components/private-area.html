@@ -7,20 +7,25 @@
   </head>
   <body class="main-container">
     <div class="header-container">
-      <a class="button-link" href="../index.html"> Logout </a>
+      <label onclick="submitLogout()" class="button-link"> Logout </label>
     </div>
     <div class="content-container">
       <span> Private area </span>
     </div>
 
-    <script
-      src="../sdk/sdk.min.js"
-      onload="indigitall.init({
-      appKey: '94cb9c3e-0749-450f-8445-49bf2b269d8a',
-      workerPath: '../sdk/worker.min.js',
-      requestLocation: true
-    })"
-      async
-    ></script>
+    <script src="../sdk/sdk.min.js"></script>
+    <script>
+      function submitLogout() {
+        indigitall.logOut(
+          (device) => {
+            console.log("Logout done! ", device);
+            window.location.href = "../index.html";
+          },
+          (error) => {
+            console.error("Incorrect logout");
+          }
+        );
+      }
+    </script>
   </body>
 </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../styles/index.css" />
+</head>
+
+<body class="main-container">
+    <div class="header-container">
+        <a class="button-link" href="./signup.html"> Signup </a>
+        <a class="button-link" href="./login.html"> Login </a>
+    </div>
+    <div class="content-container">
+        <form class="form-container" method="get">
+            <div class="input-container">
+                <label>Email</label>
+                <input type="text" placeholder="user@gmail.com" />
+            </div>
+            <div class="input-container">
+                <label>Password</label>
+                <input type="password" placeholder="*******" />
+            </div>
+            <br />
+            <input class="input-submit" type="submit" value="Submit" onclick="submitLogin()"></input>
+
+        </form>
+    </div>
+
+    <script>
+        function submitLogin() {
+            window.location.href = "/private-area.html"
+        }
+    </script>
+
+    <script src="../sdk/sdk.min.js" onload="indigitall.init({
+       appKey: '94cb9c3e-0749-450f-8445-49bf2b269d8a',
+       workerPath: '../sdk/worker.min.js',
+       requestLocation: true
+     })" async></script>
+</body>
+
+
+</html>

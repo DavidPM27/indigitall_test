@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="../styles/index.css" />
+  </head>
+  <body class="main-container">
+    <div class="header-container">
+      <a class="button-link" href="../index.html"> Logout </a>
+    </div>
+    <div class="content-container">
+      <span> Private area </span>
+    </div>
+
+    <script
+      src="../sdk/sdk.min.js"
+      onload="indigitall.init({
+      appKey: '94cb9c3e-0749-450f-8445-49bf2b269d8a',
+      workerPath: '../sdk/worker.min.js',
+      requestLocation: true
+    })"
+      async
+    ></script>
+  </body>
+</html>

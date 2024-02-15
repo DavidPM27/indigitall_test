@@ -1,0 +1,22 @@
+[IND]service-worker Received a push message {
+  "body": "Recibirás notificaciones de nuestro servicio",
+  "icon": "https://storage.googleapis.com/prod-public-assets/apps/4607/images/APP4607-2aa72058090dd5c7.png",
+  "image": "https://indigitall-cdn.com/apps/4607/images/C1717672-07bc3b8b734ff5b3.png",
+  "title": "¡Felicidades!🤗",
+  "action": {
+    "url": "https://indigitall.com/es/",
+    "type": "url",
+    "topics": [],
+    "destroy": true
+  },
+  "appKey": "94cb9c3e-0749-450f-8445-49bf2b269d8a",
+  "layout": "basic",
+  "timezone": "Europe/Madrid",
+  "requireInteraction": true,
+  "id": 311527985,
+  "sendingId": 129499311,
+  "campaignId": 1717672,
+  "journeyStateId": null,
+  "cjCurrentStateId": null,
+  "deviceId": "464c140d-a86c-4133-9dbf-8c55786a81a1"
+}

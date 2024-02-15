@@ -11,24 +11,49 @@
       <a class="button-link" href="./login.html"> Login </a>
     </div>
     <div class="content-container">
-        <form class="form-container" method="get">
-            <div class="input-container">
-                <label>Name</label>
-                <input type="text" placeholder="User" />
-            </div>
-            <div class="input-container">
-                <label>Birthdate</label>
-                <input type="date" placeholder="01/01/1999" />
-            </div>
-            <br />
-            <input class="input-submit" type="submit" value="Submit"></input>
-
-        </form>
+      <div class="form-container">
+        <div class="input-container">
+          <label for="name">Name</label>
+          <input type="text" placeholder="User" id="name" />
+        </div>
+        <div class="input-container">
+          <label for="birthdate">Birthdate</label>
+          <input type="date" placeholder="01/01/1999" id="birthdate" />
+        </div>
+        <br />
+        <button type="button" onclick="sendSignupEvent()" class="button-form">
+          Send
+        </button>
+      </div>
     </div>
-    <script src="../sdk/sdk.min.js" onload="indigitall.init({
+    <script
+      src="../sdk/sdk.min.js"
+      onload="indigitall.init({
       appKey: '94cb9c3e-0749-450f-8445-49bf2b269d8a',
       workerPath: '../sdk/worker.min.js',
       requestLocation: true
-    })" async></script>
+    })"
+      async
+    ></script>
+
+    <script>
+      function sendSignupEvent() {
+        const name = document.getElementById("name").value;
+        const birthdate = document.getElementById("birthdate").value;
+        indigitall.sendCustomEvent(
+          {
+            eventType: step1,
+            customData: { name, birthdate },
+            async: false,
+          },
+          (response) => {
+            console.log(response);
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+      }
+    </script>
   </body>
 </html>

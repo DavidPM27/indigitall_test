@@ -22,7 +22,7 @@
         </div>
         <br />
         <button type="button" onclick="sendSignupEvent()" class="button-form">
-          Send
+          Submit
         </button>
       </div>
     </div>
@@ -37,23 +37,57 @@
     ></script>
 
     <script>
+      const topicsCodes = [
+        "incomplete_step1",
+        "incomplete_step2",
+        "incomplete_step3",
+      ];
+
+      function topicsSubscribe() {
+        indigitall.topicsSubscribe(
+          topicsCodes,
+          (topics) => {
+            console.log(topics);
+          },
+          (error) => {
+            console.error(error);
+          }
+        );
+      }
+
       function sendSignupEvent() {
         const name = document.getElementById("name").value;
         const birthdate = document.getElementById("birthdate").value;
+
+        indigitall.topicsUnsubscribe(
+          ["incomplete_step1"],
+          (topics) => {
+            // success function
+            console.log(topics);
+          },
+          () => {
+            // error function
+            console.error(error);
+          }
+        );
+
         indigitall.sendCustomEvent(
           {
-            eventType: step1,
+            eventType: "step1",
             customData: { name, birthdate },
             async: false,
           },
           (response) => {
             console.log(response);
+            window.location.href = "./signup-email.html";
           },
           (error) => {
             console.log(error);
           }
         );
       }
+
+      topicsSubscribe();
     </script>
   </body>
 </html>

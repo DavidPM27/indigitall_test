@@ -11,24 +11,57 @@
       <a class="button-link" href="./login.html"> Login </a>
     </div>
     <div class="content-container">
-        <form class="form-container" method="get">
-            <div class="input-container">
-                <label>Email</label>
-                <input type="email" placeholder="user@gmail.com" />
-            </div>
-            <div class="input-container">
-                <label>Repeat email</label>
-                <input type="email" placeholder="user@gmail.com" />
-            </div>
-            <br />
-            <input class="input-submit" type="submit" value="Submit"></input>
-
-        </form>
+      <div class="form-container">
+        <div class="input-container">
+          <label for="email">Email</label>
+          <input type="email" placeholder="user@gmail.com" id="email" />
+        </div>
+        <div class="input-container">
+          <label for="repeated_email">Repeat email</label>
+          <input
+            type="email"
+            placeholder="user@gmail.com"
+            id="repeated_email"
+          />
+        </div>
+        <br />
+        <button
+          type="button"
+          onclick="sendSignupEmailEvent()"
+          class="button-form"
+        >
+          Submit
+        </button>
+      </div>
     </div>
-    <script src="../sdk/sdk.min.js" onload="indigitall.init({
+    <script
+      src="../sdk/sdk.min.js"
+      onload="indigitall.init({
       appKey: '94cb9c3e-0749-450f-8445-49bf2b269d8a',
       workerPath: '../sdk/worker.min.js',
       requestLocation: true
-    })" async></script>
+    })"
+      async
+    ></script>
+    <script>
+      function sendSignupEmailEvent() {
+        const email = document.getElementById("email").value;
+        const repeated_email = document.getElementById("repeated_email").value;
+        indigitall.sendCustomEvent(
+          {
+            eventType: "step2",
+            customData: { email, repeated_email },
+            async: false,
+          },
+          (response) => {
+            console.log(response);
+            window.location.href = "./signup-password.html";
+          },
+          (error) => {
+            console.log(error);
+          }
+        );
+      }
+    </script>
   </body>
 </html>
